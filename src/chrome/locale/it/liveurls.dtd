@@ -1,0 +1,34 @@
+<!ENTITY webmarker.title                  "Web Marker">
+<!ENTITY webmarker-toolbar.title          "Barra di Web Marker">
+<!ENTITY webmarker-toolbar.accesskey      "W">
+
+<!ENTITY liveurls.label                   "Elementi di menu localizzati">
+<!ENTITY liveurls.context.liveurls.mark   "Evidenzia la selezione">
+<!ENTITY button.mark-single.label         "Evidenzia">
+<!ENTITY button.mark-text.tooltip         "Evidenzia il testo selezionato">
+<!ENTITY context.mark-text.label          "Evidenzia il testo selezionato">
+<!ENTITY liveurls.accesskey1              "u">
+<!ENTITY liveurls.accesskey2              "E">
+
+<!ENTITY context.copy-to-selection.label  "Copia link del testo selezionato">
+<!ENTITY button.copy-to-document.label    "Copia link">
+<!ENTITY button.copy-to-document.tooltip  "Copia link del testo evidenziato">
+<!ENTITY context.copy-to-document.label   "Copia link del testo evidenziato">
+<!ENTITY button.bookmark-document.label   "Nei segnalibri...">
+<!ENTITY button.bookmark-document.tooltip "Aggiungi il testo evidenziato come nuovo segnalibro fra i segnalibri">
+<!ENTITY context.bookmark-document.label  "Testo evidenziato nei segnalibri...">
+<!ENTITY button.clear-all-marks.label     "Annulla evidenziature">
+<!ENTITY button.clear-all-marks.tooltip   "Annulla tutte le evidenziature presenti nella pagina web">
+<!ENTITY context.clear-all-marks.label    "Annulla tutte le evidenziature">
+<!ENTITY context.clear-this-mark.label    "Annulla questa evidenziatura">
+<!ENTITY context.copy-fragments.label     "Copia il testo evidenziato">
+<!ENTITY button.copy-fragments.tooltip    "Copia il testo evidenziato negli appunti">
+<!ENTITY context.no-text-selected.label   "Nessun testo selezionato">
+
+<!ENTITY context.navigation.label         "Navigazione">
+<!ENTITY button.next-mark.label           "Prossima evidenziatura">
+<!ENTITY button.next-mark.tooltip         "Vai alla prossima evidenziatura">
+<!ENTITY context.next-mark.label          "Prossima evidenziatura">
+<!ENTITY button.previous-mark.label       "Precedente evidenziatura">
+<!ENTITY button.previous-mark.tooltip     "Torna alla precedente evidenziatura">
+<!ENTITY context.previous-mark.label      "Precedente evidenziatura">

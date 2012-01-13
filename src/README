@@ -1,0 +1,68 @@
+README
+------
+Live URLs is a novel approach, which uses URI fragment identifiers
+smartly, to enable HTTP clients to address and process content,
+independent of its original representation. LiveURLs was an idea
+conceptualized by InfyLUG as part of its research on internet and web
+technologies.
+
+The LiveURLs extension allows users to create links to any portion of a
+web page. The extension allows users to exchange portions of webpages
+using links. The user only needs to select the content that he wants to
+share and create a URL(link) for that content from the context menu (the
+menu that pops up on a right-click). This newly created URL/link when
+viewed with a browser, which has the LiveURL extension installed, will
+show the selected content with a highlight. The URLs created using this
+extension are called LiveURLs.
+
+There are two types of LiveURLs based on location semantics
+
+    * Content Location - Reflects the content that was selected
+    * Position Location - Reflects the position of the content on the page 
+
+Benefits of using LiveURLs
+--------------------------
+    * Sharing specific content is just a right click away
+    * Peer-Peer - no intermediate server required
+    * Usable in the same manner as existing URLs
+    * Browsers which do not support LiveURLs still show the whole page
+    * LiveURLs can be used as a bookmark within a web page 
+
+Notes for Developers
+--------------------
+As any OpenSource project we encourage open discussion and further
+idea's on the LiveURL's concept.  We also understand that the
+implementation details need to be standardized for larger adoption.  We
+look forward for support from the OpenSource community for making this a
+standard for HTTP clients.
+
+Notes to Users
+--------------
+The implementation details behind LiveURL's are not W3C Standards.  Also
+development on this concept takes place at a rather rapid rate, hence
+backward compatibility cannot be gauranteed.  We suggest you wait for a
+standardized implementation of LiveURL's before using it as normal
+URL's.
+
+InfyLUG
+-------
+InfyLUG is the OpenSource community of Infosys.  It is a group of
+volunteers who are enthusiastic and passionate about OpenSource
+deployment.  InfyLUG helps Infoscions pursue their interests in
+OpenSource RnD.  LiveURLs was conceptualized by InfyLUG in February,
+2006 and a perfect example of a community project in a corporate world.
+InfyLUG would be presenting this concept at the 15th International World
+Wide Web conference at Edinburgh
+http://www2006.org/programme/paper.php?id=p156.
+
+References
+----------
+1. Ahoy : http://dev.lophty.com/ahoy/article.htm
+2. Scrapbook Extension: http://amb.vis.ne.jp/mozilla/scrapbook/
+3. PNG-CRC : http://www.w3.org/TR/PNG-CRCAppendix.html
+
+License
+-------
+All code packaged under this Firefox extension is licensed under the GPL
+v2.0.  See the COPYING file for the full License Text.
+

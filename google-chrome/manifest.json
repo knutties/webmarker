@@ -1,0 +1,12 @@
+{
+  "name": "Web Marker",
+  "version": "0.1",
+  "description": "Marker pen for the web",
+  "browser_action": {
+    "default_icon": "marker.png",
+    "popup": "popup.html"
+  },
+  "permissions": [
+    "http://api.flickr.com/"
+  ]
+}

@@ -1,0 +1,8 @@
+<!ENTITY prefwindow.title "Impostazioni di Web Marker">
+<!ENTITY pane1.title "Impostazioni di Web Marker">
+<!ENTITY checkboolpref.label "Booleano">
+<!ENTITY checkboolpref.accesskey "B">
+<!ENTITY intpref.label "Numero intero">
+<!ENTITY intpref.accesskey "I">
+<!ENTITY stringpref.label "Stringa">
+<!ENTITY stringpref.accesskey "S">

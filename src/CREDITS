@@ -1,0 +1,33 @@
+A lot of people have contributed valuable ideas to this project.
+Listing them in no particular order.
+
+Raghuveer BK [raghubk@infosys.com] for his idea about using checksums to
+validate content
+
+Naveen Krishnan Unni [naveenku@infosys.com] for his idea about using
+search strings and match instances
+
+Rajesh Balakrishnan [rajeshb@infosys.com] giving us valuable ideas on
+adding processing semantics
+
+Sanjay Eknath Nayak [sanjayeknath_nayak@infosys.com] for his
+encouragement and Javascript insights
+
+Mahendra [mahendra_m@infosys.com] for encouraging us all throughout
+
+Vineet Agarwal [teeniv@gmail.com] for his ideas on the possibility of
+using regular expressions for fragment identifiers
+
+Anonymous Italian translators who made our extension localizable :)
+
+We've had a lot of people test this extension out for us.  A big thanks
+to all of them.
+
+Other projects to which we are indebted to, are:
+
+* The Firefox project - which let us do what we wanted to :) with its
+  amazing extension development facility
+* The Ahoy project: http://dev.lophty.com/ahoy/article.htm
+* The Scrapbook project: http://amb.vis.ne.jp/mozilla/scrapbook/
+
+Natarajan and Toufeeq

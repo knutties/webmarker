@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
+         xmlns:NC="http://home.netscape.com/NC-rdf#"
+         xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <RDF:Description RDF:about="rdf:#$iakhw"
+                   em:id="{a463f10c-3994-11da-9945-000d60ca027b}"
+                   em:maxVersion="6.02"
+                   em:minVersion="0.2" />
+  <RDF:Description RDF:about="rdf:#$dakhw"
+                   em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   em:minVersion="3.0"
+                   em:maxVersion="9.*" />
+  <RDF:Description RDF:about="urn:mozilla:install-manifest"
+                   em:id="{5755466A-DB04-11DA-A2DD-0E545D5EE2F7}"
+                   em:name="Web Marker"
+                   em:version="0.7"
+                   em:creator="Natarajan and Toufeeq"
+                   em:description="Marker pen for the web"
+                   em:iconURL="chrome://liveurls/skin/marker.png"
+                   em:homepageURL="http://liveurls.mozdev.org"
+                   em:aboutURL="chrome://liveurls/content/about.xul">
+    <em:contributor>
+        Luana - For Italian translation (matrixisallover@babelzilla.org)
+    </em:contributor>
+    <em:targetApplication RDF:resource="rdf:#$dakhw"/>
+    <em:targetApplication RDF:resource="rdf:#$iakhw"/>
+  </RDF:Description>
+</RDF:RDF>
