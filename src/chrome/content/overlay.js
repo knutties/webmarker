@@ -36,7 +36,6 @@ var webmarkerOverlay = {
         var currentTab = commonUtils.getCurrentTab();
         var currentDoc = currentTab.contentDocument;
         var marker = document.getElementById("webmarker-mark-button");
-        var checked =  !(marker.checked);
 
         if(commonUtils.isTextSelected(currentDoc)) {
             var selection = currentTab.contentWindow.getSelection();
@@ -45,21 +44,11 @@ var webmarkerOverlay = {
             if(commonUtils.isOverlappedSelection(currentDoc, range)) {
                 alert(commonUtils.getLocalizedString('mark.overlap-message'));
             } else {
-                if(checked) {
-                    webmarker.markRange(currentDoc, range);
-                }
+                webmarker.markRange(currentDoc, range);
             }
             return;
         } else {
-            marker.checked = checked;
-            marker = document.getElementById("webmarker-mark-button-floating");
-
-            /* the floating button exists only if the user has added it to
-             * the navigation bar
-             */
-            if(marker) {
-                marker.checked = checked;
-            }
+            alert(commonUtils.getLocalizedString('overlay.no-string-selected'));
         }
     },
 

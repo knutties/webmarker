@@ -13,7 +13,7 @@
   <RDF:Description RDF:about="urn:mozilla:install-manifest"
                    em:id="{5755466A-DB04-11DA-A2DD-0E545D5EE2F7}"
                    em:name="Web Marker"
-                   em:version="0.7"
+                   em:version="0.8"
                    em:creator="Natarajan and Toufeeq"
                    em:description="Marker pen for the web"
                    em:iconURL="chrome://liveurls/skin/marker.png"

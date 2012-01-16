@@ -237,8 +237,6 @@
                      tooltiptext="&button.mark-text.tooltip;"
                      image="chrome://liveurls/skin/marker.png"
                      label="&button.mark-single.label;"
-                     checkState="0"
-                     type="checkbox"
                      command="cmd_liveurls_mark_selection" />
 
       <toolbarbutton id="webmarker-clearall-button"

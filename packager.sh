@@ -5,8 +5,8 @@
 RELEASE_TEMP_DIR="/tmp/web-marker"
 DEV_TEMP_DIR="${HOME}/tmp/web-marker"
 MANIFEST="chrome.manifest"
-VERSION="0.7"
-DEV=0
+VERSION="0.8"
+RELEASE=0
 
 TEMP_DIR=${RELEASE_TEMP_DIR}
 
@@ -14,6 +14,7 @@ function release_packager()
 {
     dir=$1
     cd ${dir}
+    perl -pi -e 's/chrome\//jar:chrome\/webmarker.jar!\//g' chrome.manifest
     cd chrome
     jar -cvf webmarker.jar *
     rm -rf skin content locale
@@ -25,26 +26,24 @@ function dev_packager()
 {
     dir=$1
     cd ${dir}
-    perl -pi -e 's/jar://g' chrome.manifest
-    perl -pi -e 's/\/webmarker\.jar!//g' chrome.manifest
 }
 
-while getopts "d" type
+while getopts "r" option
 do
-   case $type in 
-   d ) DEV=1; 
-       TEMP_DIR=${DEV_TEMP_DIR};
+   case $option in 
+   r ) RELEASE=1; 
+       TEMP_DIR=${RELEASE_TEMP_DIR};
        ;;
    esac
 done
 
 rm -rf ${TEMP_DIR}
 mkdir -p ${TEMP_DIR}
-cp -r web-marker/* ${TEMP_DIR}
+cp -r src/* ${TEMP_DIR}
 cd ${TEMP_DIR}
-find . -name CVS -print0 | xargs -0 rm -rf
+find . -name .git -print0 | xargs -0 rm -rf
 
-if [ "${DEV}" == "0" ]; then
+if [ ${RELEASE} -eq 1 ]; then
     # release packaging     
     release_packager ${TEMP_DIR}
 else
