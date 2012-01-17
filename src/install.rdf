@@ -24,5 +24,6 @@
     </em:contributor>
     <em:targetApplication RDF:resource="rdf:#$dakhw"/>
     <em:targetApplication RDF:resource="rdf:#$iakhw"/>
+    <em:type>2</em:type>
   </RDF:Description>
 </RDF:RDF>

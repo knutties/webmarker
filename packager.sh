@@ -14,11 +14,6 @@ function release_packager()
 {
     dir=$1
     cd ${dir}
-    perl -pi -e 's/chrome\//jar:chrome\/webmarker.jar!\//g' chrome.manifest
-    cd chrome
-    jar -cvf webmarker.jar *
-    rm -rf skin content locale
-    cd ..
     zip -r ../webmarker-${VERSION}.xpi *
 }
 
