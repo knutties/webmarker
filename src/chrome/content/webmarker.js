@@ -44,8 +44,8 @@ webmarkerNS.webmarker = {
 
         var nextNode = null;
 
-        if(!allowOverlap && commonUtils.isOverlappedSelection(currentDoc, range)) {
-            alert(commonUtils.getLocalizedString('mark.overlap-message'));
+        if(!allowOverlap && webmarkerNS.utils.isOverlappedSelection(currentDoc, range)) {
+            alert(webmarkerNS.utils.getLocalizedString('mark.overlap-message'));
             nextNode = null;
         } else {
 
@@ -101,12 +101,12 @@ webmarkerNS.webmarker = {
     /* marks the selected content of a page if we are in mark mode */
     markSelectionMode: function(currentDoc)
     {
-        var currentTab = commonUtils.getTabOfDocument(currentDoc);
+        var currentTab = webmarkerNS.utils.getTabOfDocument(currentDoc);
         var selection = currentTab.contentWindow.getSelection();
         var marker =
             document.getElementById("webmarker-mark-button");
         
-        if(marker.checked && commonUtils.isTextSelected(currentDoc)) {
+        if(marker.checked && webmarkerNS.utils.isTextSelected(currentDoc)) {
             this.markSelection(currentDoc, selection);
         }
     },
@@ -177,7 +177,7 @@ webmarkerNS.webmarker = {
      */
     addMark: function(currentDoc, fragmentID, title, fragmentText)
     {
-        var currentTab = commonUtils.getTabOfDocument(currentDoc);
+        var currentTab = webmarkerNS.utils.getTabOfDocument(currentDoc);
 
         var mark = new webmark;
 
@@ -222,7 +222,7 @@ webmarkerNS.webmarker = {
      */
     removeMarks: function(currentDoc, title)
     {
-        var currentTab = commonUtils.getTabOfDocument(currentDoc);
+        var currentTab = webmarkerNS.utils.getTabOfDocument(currentDoc);
         if(title == "*") {
             this.initMarks(currentDoc);
         } else {
@@ -270,7 +270,7 @@ webmarkerNS.webmarker = {
     /* initializes the webmarks of the document */
     initMarks: function(currentDoc)
     {
-        var currentTab = commonUtils.getTabOfDocument(currentDoc);
+        var currentTab = webmarkerNS.utils.getTabOfDocument(currentDoc);
         if(currentTab) {
             if(currentTab.marks) {
                 delete currentTab.marks;
@@ -307,12 +307,12 @@ webmarkerNS.webmarker = {
             /* focus a bit above the highlighted text */
             scrollY -= this.scrollAmount;
 
-            var currentTab = commonUtils.getTabOfDocument(currentDoc);
+            var currentTab = webmarkerNS.utils.getTabOfDocument(currentDoc);
             currentTab.contentWindow.scroll(scrollX, scrollY);
         }
 
-        if(commonUtils.getCurrentTab() 
-           == commonUtils.getTabOfDocument(currentDoc)) {
+        if(webmarkerNS.utils.getCurrentTab() 
+           == webmarkerNS.utils.getTabOfDocument(currentDoc)) {
                this.handleMarkBoundaries(currentDoc);
            }
     },
@@ -321,7 +321,7 @@ webmarkerNS.webmarker = {
     focusNextMark: function(event)
     {
         var currentDoc = content.document;
-        var currentTab = commonUtils.getTabOfDocument(currentDoc);
+        var currentTab = webmarkerNS.utils.getTabOfDocument(currentDoc);
         if(this.isMarkedPage(currentDoc)) {
             if(currentTab.focussedMark < currentTab.marks.length - 1) {
                 var previousFocussedMark = currentTab.focussedMark;
@@ -341,7 +341,7 @@ webmarkerNS.webmarker = {
     focusPreviousMark: function(event)
     {
         var currentDoc = content.document;
-        var currentTab = commonUtils.getTabOfDocument(currentDoc);
+        var currentTab = webmarkerNS.utils.getTabOfDocument(currentDoc);
         if(this.isMarkedPage(currentDoc)) {
             if(currentTab.focussedMark > 0) {
                 var previousFocussedMark = currentTab.focussedMark;
@@ -383,8 +383,8 @@ webmarkerNS.webmarker = {
         this.removeMarks(currentDoc, title);
 
         /*
-          if(commonUtils.getCurrentTab() 
-          == commonUtils.getTabOfDocument(currentDoc)) {
+          if(webmarkerNS.utils.getCurrentTab() 
+          == webmarkerNS.utils.getTabOfDocument(currentDoc)) {
           this.handleMarking(false, currentDoc);
           }
         */
@@ -439,20 +439,20 @@ webmarkerNS.webmarker = {
     {
         var fragments = "";
         var currentDoc = content.document;
-        var currentTab = commonUtils.getTabOfDocument(currentDoc);
+        var currentTab = webmarkerNS.utils.getTabOfDocument(currentDoc);
         for(var i = 0; i < currentTab.marks.length; i++) {
             var fragmentText = currentTab.marks[i].fragmentText;
             fragments += fragmentText;
             fragments += "\n\n\n";
         }
         
-        commonUtils.copyToClipboard(fragments);
+        webmarkerNS.utils.copyToClipboard(fragments);
     },
 
     /* repaints a given mark with the specified colour */
     repaintMark: function(currentDoc, mark, colour)
     {
-        var currentTab = commonUtils.getTabOfDocument(currentDoc);
+        var currentTab = webmarkerNS.utils.getTabOfDocument(currentDoc);
         if(mark) {
             var markedLiveNodes = currentDoc.evaluate(
                                                       "//span[@class='livetext' and @title=\"" + mark.title + "\"]",
@@ -473,7 +473,7 @@ webmarkerNS.webmarker = {
     /* returns true if any marks exist of the document */
     isMarkedPage: function(currentDoc)
     {
-        var currentTab = commonUtils.getTabOfDocument(currentDoc);
+        var currentTab = webmarkerNS.utils.getTabOfDocument(currentDoc);
         if(currentTab && currentTab.marks) {
             if(currentTab.marks.length > 0) {
                 return true;
@@ -488,7 +488,7 @@ webmarkerNS.webmarker = {
     /* takes care of enabling/disabling marks once we hit mark boundaries */
     handleMarkBoundaries: function(currentDoc)
     {
-        var currentTab = commonUtils.getTabOfDocument(currentDoc);
+        var currentTab = webmarkerNS.utils.getTabOfDocument(currentDoc);
         
         if((!currentTab.marks) || (currentTab.marks.length == 0)) {
             this.disableNextMarkNavigation();
@@ -512,7 +512,7 @@ webmarkerNS.webmarker = {
     /* enables the marker pen when text is selected a page */
     handleTextSelection: function(e, currentDoc)
     {
-        if(commonUtils.isTextSelected(currentDoc)) {
+        if(webmarkerNS.utils.isTextSelected(currentDoc)) {
             this.showSelectionOptions("context");
             this.hideNoTextOption("context");
         } else {
@@ -528,8 +528,8 @@ webmarkerNS.webmarker = {
      */
     handleOptionUpdation: function(e, currentDoc)
     {
-        if(commonUtils.getCurrentTab() == 
-            commonUtils.getTabOfDocument(currentDoc)) {
+        if(webmarkerNS.utils.getCurrentTab() == 
+            webmarkerNS.utils.getTabOfDocument(currentDoc)) {
                this.handleTextSelection(e, currentDoc);
                this.handleMarking(e, currentDoc);
                this.handleClickOnMark(e, currentDoc);
@@ -679,7 +679,7 @@ webmarkerNS.webmarker = {
         document.getElementById("cmd_webmarker_copy_fragments").
         setAttribute("disabled", false);
 
-        var currentTab = commonUtils.getTabOfDocument(currentDoc);
+        var currentTab = webmarkerNS.utils.getTabOfDocument(currentDoc);
         if(currentTab.marks) {
             if(currentTab.marks.length > 1) {
                 this.enableNavigation();
@@ -757,7 +757,7 @@ webmarkerNS.webmarker = {
         document.getElementById("cmd_webmarker_copy_fragments").
         setAttribute("disabled", true);
 
-        var currentTab = commonUtils.getTabOfDocument(currentDoc);
+        var currentTab = webmarkerNS.utils.getTabOfDocument(currentDoc);
         if(currentTab.marks) {
             if(currentTab.marks.length <= 1) {
                 this.disableNavigation();

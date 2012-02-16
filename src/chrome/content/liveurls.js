@@ -60,7 +60,7 @@ webmarkerNS.liveurls = {
 
         var sameNode = (startNode == endNode);
 
-        if(sameNode && commonUtils.isTextNode(startNode)) {
+        if(sameNode && webmarkerNS.utils.isTextNode(startNode)) {
             /* selected range is a within a single text node, we do not
              * have to walk the tree to accumulate the string
              * 
@@ -69,7 +69,7 @@ webmarkerNS.liveurls = {
              */
             if(strings) {
                 rangeString += 
-                    commonUtils.cleanStrings(startNode.data.substr(startOffset, endOffset - startOffset));
+                    webmarkerNS.utils.cleanStrings(startNode.data.substr(startOffset, endOffset - startOffset));
             }
             if(highlight) {
                 startNode = startNode.splitText(startOffset);
@@ -122,14 +122,14 @@ webmarkerNS.liveurls = {
                 txtNode;
                 txtNode = nodeWalker.nextNode()) {
                 
-                if(commonUtils.isTextNode(txtNode)) {
+                if(webmarkerNS.utils.isTextNode(txtNode)) {
 
                     /* get a clean version of the text content, we
                      * remove un-necessary whitespace characters
                      */
                     var str;
                     if(strings) {
-                        str = commonUtils.cleanStrings(txtNode.data);
+                        str = webmarkerNS.utils.cleanStrings(txtNode.data);
                         
                         if(str.length > 0) {
                             if(trackNodes) {
@@ -198,14 +198,14 @@ webmarkerNS.liveurls = {
         var startOffset = range.startOffset;
 
         /* get to the exact startNode */
-        if(!commonUtils.isTextTypeNode(startNode)) {
+        if(!webmarkerNS.utils.isTextTypeNode(startNode)) {
             startNode = startNode.childNodes[startOffset];
         } else {
             startNode = startNode.splitText(startOffset);
         }
 
         /* find the first text node of the walker */
-        if(!commonUtils.isTextNode(startNode)) {
+        if(!webmarkerNS.utils.isTextNode(startNode)) {
             nodeWalker.currentNode = startNode;
             startNode = nodeWalker.nextNode();
         }
@@ -221,7 +221,7 @@ webmarkerNS.liveurls = {
         var endNode = range.endContainer;
         var endOffset = range.endOffset;
 
-        if(!commonUtils.isTextTypeNode(endNode)) {
+        if(!webmarkerNS.utils.isTextTypeNode(endNode)) {
             /* we do an [endOffset - 1] here because endOffset
              * indicates the number of children before the endNode
              * and so [endOffset - 1] indicates the last selected
@@ -233,7 +233,7 @@ webmarkerNS.liveurls = {
         }
 
         /* set the last text node of the range */
-        if(!commonUtils.isTextNode(endNode)) {
+        if(!webmarkerNS.utils.isTextNode(endNode)) {
             /* we find the last child of the endNode and work up our
              * way in the tree to find the last text node
              */
@@ -245,7 +245,7 @@ webmarkerNS.liveurls = {
             }
             lastChild = tmp;
 
-            if(!commonUtils.isTextNode(lastChild)) {
+            if(!webmarkerNS.utils.isTextNode(lastChild)) {
                 /* we use a small trick to find the text node that
                  * is closest to the endNode (or) the endNode itself
                  * (if endNode is a text node).
@@ -315,7 +315,7 @@ webmarkerNS.liveurls = {
         var nodeStr = node.data;
 
         for(i = 0; (i < nodeStr.length); i++) {
-            if(!(nodeStr.charAt(i).match(commonUtils.unWantedChars))) {
+            if(!(nodeStr.charAt(i).match(webmarkerNS.utils.unWantedChars))) {
                 ci++;
                 if(ci == cleanOffset + 1) {
                     break;
@@ -418,7 +418,7 @@ webmarkerNS.liveurls = {
          * not want to show punctuation to others 
          */
         selectedString =
-        selectedString.replace(commonUtils.unWantedChars, "");
+        selectedString.replace(webmarkerNS.utils.unWantedChars, "");
 
         if(selectedString.length > 0) {
             if(selectedString.length < startStrLen) {
@@ -447,7 +447,7 @@ webmarkerNS.liveurls = {
              */
 
             fragmentID = startStrLen + startStr +
-                (selectedString.length).toString(16) + commonUtils.delim +
+                (selectedString.length).toString(16) + webmarkerNS.utils.delim +
                 (crc).toString(16);
         }
 
@@ -469,7 +469,7 @@ webmarkerNS.liveurls = {
 
             /* get rest of the string info */
             var strInfo =   
-            fragmentID.substr(startStrLen + 1).split(commonUtils.delim);
+            fragmentID.substr(startStrLen + 1).split(webmarkerNS.utils.delim);
             /* extract the selected string length and the checksum */
             var selectedStrLength = parseInt(strInfo[0], 16);
             var checksum = parseInt(strInfo[1], 16);
@@ -499,7 +499,7 @@ webmarkerNS.liveurls = {
         var urlComponents = url.split("#");
         url = urlComponents[0];
         var liveURL = url + "#";
-        var currentTab = commonUtils.getTabOfDocument(currentDoc);
+        var currentTab = webmarkerNS.utils.getTabOfDocument(currentDoc);
 
         if(all) {
             for(var i = 0; i < currentTab.marks.length; i++) {

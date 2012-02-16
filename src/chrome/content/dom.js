@@ -32,7 +32,7 @@ webmarkerNS.domURLProcessor = {
        should ideally be picked up from options.  Other ways of
        processing a range be found in the utils.js file.
      */
-    process: function(i) { return commonUtils.highlightRange(i); },
+    process: function(i) { return webmarkerNS.utils.highlightRange(i); },
 
     getNodeIdentifier: function(node)
     {
@@ -147,14 +147,14 @@ webmarkerNS.domURLProcessor = {
                 
                 /* Get start node and offset from the start details */
                 var startDetailsComponents =
-                    startDetails.split(commonUtils.delim);
+                    startDetails.split(webmarkerNS.utils.delim);
                 len = startDetailsComponents.length;
                 startNode = this.getNode(
                     startDetailsComponents.slice(0, len - 1));
                 startOffset = startDetailsComponents[len - 1];
 
                 var endDetailsComponents =  
-                    endDetails.split(commonUtils.delim);
+                    endDetails.split(webmarkerNS.utils.delim);
                 len = endDetailsComponents.length;
                 endNode = this.getNode(
                     endDetailsComponents.slice(0, len - 1));
@@ -167,7 +167,7 @@ webmarkerNS.domURLProcessor = {
                 /* process live range */
                 this.process(range);
 
-                commonUtils.focusLiveText(0);
+                webmarkerNS.utils.focusLiveText(0);
             }
         }
     },
@@ -192,11 +192,11 @@ webmarkerNS.domURLProcessor = {
             startParentLocator = this.getNodeIdentifier(startContainer);
             endParentLocator = this.getNodeIdentifier(endContainer);
 
-            liveURL = url + "#" + escape("dom" + commonUtils.delim + 
-                startParentLocator.join(commonUtils.delim) + 
-                commonUtils.delim + startOffset + "-" +
-                endParentLocator.join(commonUtils.delim) +
-                commonUtils.delim + endOffset);
+            liveURL = url + "#" + escape("dom" + webmarkerNS.utils.delim + 
+                startParentLocator.join(webmarkerNS.utils.delim) + 
+                webmarkerNS.utils.delim + startOffset + "-" +
+                endParentLocator.join(webmarkerNS.utils.delim) +
+                webmarkerNS.utils.delim + endOffset);
         }
 
         return liveURL;
@@ -205,6 +205,6 @@ webmarkerNS.domURLProcessor = {
     /* copies LiveURL to the clip-board */
     copyDOMLiveURL: function()
     {
-        commonUtils.copyToClipboard(this.getDOMLiveURL());
+        webmarkerNS.utils.copyToClipboard(this.getDOMLiveURL());
     }
 };

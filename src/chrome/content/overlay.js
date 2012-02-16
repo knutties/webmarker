@@ -26,29 +26,29 @@ webmarkerNS.overlay = {
     /* Function called when a tab is selected. */
     onTabFocus: function(e)
     {
-        var currentDoc = commonUtils.getCurrentTab().contentDocument;
+        var currentDoc = webmarkerNS.utils.getCurrentTab().contentDocument;
         webmarkerNS.webmarker.handleOptionUpdation(e, currentDoc);
     },
 
     /* Function called when a portion of a web-page is marked. */
     onMarkSelection: function(e)
     {
-        var currentTab = commonUtils.getCurrentTab();
+        var currentTab = webmarkerNS.utils.getCurrentTab();
         var currentDoc = currentTab.contentDocument;
         var marker = document.getElementById("webmarker-mark-button");
 
-        if(commonUtils.isTextSelected(currentDoc)) {
+        if(webmarkerNS.utils.isTextSelected(currentDoc)) {
             var selection = currentTab.contentWindow.getSelection();
             var range = selection.getRangeAt(0);
 
-            if(commonUtils.isOverlappedSelection(currentDoc, range)) {
-                alert(commonUtils.getLocalizedString('mark.overlap-message'));
+            if(webmarkerNS.utils.isOverlappedSelection(currentDoc, range)) {
+                alert(webmarkerNS.utils.getLocalizedString('mark.overlap-message'));
             } else {
                 webmarkerNS.webmarker.markRange(currentDoc, range);
             }
             return;
         } else {
-            alert(commonUtils.getLocalizedString('overlay.no-string-selected'));
+            alert(webmarkerNS.utils.getLocalizedString('overlay.no-string-selected'));
         }
     },
 
@@ -58,41 +58,41 @@ webmarkerNS.overlay = {
     onCopySelectionLiveURL: function(e)
     {
         this.onMarkSelection();
-        var currentTab = commonUtils.getCurrentTab();
+        var currentTab = webmarkerNS.utils.getCurrentTab();
         var currentDoc = currentTab.contentDocument;
-        commonUtils.copyToClipboard(
+        webmarkerNS.utils.copyToClipboard(
             webmarkerNS.liveurls.getLiveURL(currentDoc, false, currentTab.focussedMark));
     },
 
     /* Function to copy the LiveURL of a marked web-page. */
     onCopyDocumentLiveURL: function(e)
     {
-        var currentDoc = commonUtils.getCurrentTab().contentDocument;
-        commonUtils.copyToClipboard(webmarkerNS.liveurls.getLiveURL(currentDoc, true));
+        var currentDoc = webmarkerNS.utils.getCurrentTab().contentDocument;
+        webmarkerNS.utils.copyToClipboard(webmarkerNS.liveurls.getLiveURL(currentDoc, true));
     },
 
     /* Function called to bookmark a marked web-page. */
     onBookmarkLiveURL: function(e)
     {
-        var currentDoc = commonUtils.getCurrentTab().contentDocument;
-        commonUtils.bookmarkURL(webmarkerNS.liveurls.getLiveURL(currentDoc, true));
+        var currentDoc = webmarkerNS.utils.getCurrentTab().contentDocument;
+        webmarkerNS.utils.bookmarkURL(webmarkerNS.liveurls.getLiveURL(currentDoc, true));
     },
 
     /* Function called to bookmark a selection on a web-page. */
     onBookmarkSelection: function(e)
     {
         this.onMarkSelection(e);
-        var currentDoc = commonUtils.getCurrentTab().contentDocument;
-        var currentTab = commonUtils.getTabOfDocument(currentDoc);
+        var currentDoc = webmarkerNS.utils.getCurrentTab().contentDocument;
+        var currentTab = webmarkerNS.utils.getTabOfDocument(currentDoc);
         var liveURL = 
             webmarkerNS.liveurls.getLiveURL(false, currentTab.focussedMark);
-        commonUtils.bookmarkURL(liveURL);
+        webmarkerNS.utils.bookmarkURL(liveURL);
     },
 
     /* Function which handles the processing of a LiveURL. */
     processURL: function(event)
     {
-        var currentDoc = commonUtils.getDocumentOfEvent(event);
+        var currentDoc = webmarkerNS.utils.getDocumentOfEvent(event);
         
         if(!currentDoc) {
             return;
@@ -121,7 +121,7 @@ webmarkerNS.overlay = {
 
         /* focus first mark of the page if it is there */
         if(webmarkerNS.webmarker.isMarkedPage(currentDoc)) {
-            var currentTab = commonUtils.getTabOfDocument(currentDoc);
+            var currentTab = webmarkerNS.utils.getTabOfDocument(currentDoc);
 
             var previousFocussedMark = currentTab.focussedMark;
             webmarkerNS.webmarker.repaintMark(currentDoc, 
@@ -137,14 +137,14 @@ webmarkerNS.overlay = {
     /* Function to clear all the marks present on a marked web-page */
     onClearAllMarks: function()
     {
-        var currentDoc = commonUtils.getCurrentTab().contentDocument;
+        var currentDoc = webmarkerNS.utils.getCurrentTab().contentDocument;
         webmarkerNS.webmarker.clearMarks(currentDoc, "*");
     },
 
     /* Clears a particular mark on a marked web-page. */
     onClearMark: function()
     {
-        var currentDoc = commonUtils.getCurrentTab().contentDocument;
+        var currentDoc = webmarkerNS.utils.getCurrentTab().contentDocument;
         webmarkerNS.webmarker.clearMarks(currentDoc, webmarker.markForDeletion);
     },
 
@@ -153,7 +153,7 @@ webmarkerNS.overlay = {
      */
     handleFailure: function(currentDoc, fragmentID)
     {
-        if(!commonUtils.isLivePage(currentDoc)) {
+        if(!webmarkerNS.utils.isLivePage(currentDoc)) {
             alert("LiveURL processing failed for " + fragmentID + 
             ".  The indicated content might have changed.  If you still \
             feel this is a bug, please report the bug at \

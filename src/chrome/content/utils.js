@@ -21,7 +21,7 @@
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-var commonUtils = {
+webmarkerNS.utils = {
 
     /* delimiter used to separate parameters in fragment ID, using '+'
      * has advantages.  It does not change on url-encoding, no other
