@@ -26,7 +26,7 @@
    portions of web pages. http://dev.lophty.com/ahoy/article.htm 
  */
 
-var domURLProcessor = {
+webmarkerNS.domURLProcessor = {
 
     /* this sets the default processing of the identified range, this
        should ideally be picked up from options.  Other ways of

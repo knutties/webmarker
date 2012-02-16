@@ -7,9 +7,9 @@
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   <!-- Included javascript files of the extension, -->
   <script type="application/x-javascript" 
-          src="chrome://webmarker/content/utils.js" />
-  <script type="application/x-javascript" 
           src="chrome://webmarker/content/webmarker.js" />
+  <script type="application/x-javascript" 
+          src="chrome://webmarker/content/utils.js" />
   <script type="application/x-javascript" 
           src="chrome://webmarker/content/dom.js" />
   <script type="application/x-javascript" 
@@ -49,43 +49,43 @@
   <commandset id="mainCommandSet">
     <command id="cmd_webmarker_mark_selection"
              disabled="false"
-             oncommand="webmarkerOverlay.onMarkSelection(event);" />
+             oncommand="webmarkerNS.overlay.onMarkSelection(event);" />
 
     <command id="cmd_webmarker_copy_link_to_selection"
              disabled="true"
-             oncommand="webmarkerOverlay.onCopySelectionLiveURL(event);" />
+             oncommand="webmarkerNS.overlay.onCopySelectionLiveURL(event);" />
 
     <command id="cmd_webmarker_copy_link_to_marked_document"
              disabled="true"
-             oncommand="webmarkerOverlay.onCopyDocumentLiveURL(event);" />
+             oncommand="webmarkerNS.overlay.onCopyDocumentLiveURL(event);" />
 
     <command id="cmd_webmarker_bookmark_selection"
              disabled="true"
-             oncommand="webmarkerOverlay.onBookmarkSelection(event);" />
+             oncommand="webmarkerNS.overlay.onBookmarkSelection(event);" />
 
     <command id="cmd_webmarker_bookmark_marked_document"
              disabled="true"
-             oncommand="webmarkerOverlay.onBookmarkLiveURL(event);" />
+             oncommand="webmarkerNS.overlay.onBookmarkLiveURL(event);" />
 
     <command id="cmd_webmarker_clear_all_marks"
              disabled="true"
-             oncommand="webmarkerOverlay.onClearAllMarks(event);" />
+             oncommand="webmarkerNS.overlay.onClearAllMarks(event);" />
 
     <command id="cmd_webmarker_clear_mark"
              disabled="true"
-             oncommand="webmarkerOverlay.onClearMark(event);" />
+             oncommand="webmarkerNS.overlay.onClearMark(event);" />
 
     <command id="cmd_webmarker_goto_next_mark"
              disabled="true"
-             oncommand="webmarker.focusNextMark(event);" />
+             oncommand="webmarkerNS.webmarker.focusNextMark(event);" />
 
     <command id="cmd_webmarker_goto_previous_mark"
              disabled="true"
-             oncommand="webmarker.focusPreviousMark(event);" />
+             oncommand="webmarkerNS.webmarker.focusPreviousMark(event);" />
 
     <command id="cmd_webmarker_copy_fragments"
              disabled="true"
-             oncommand="webmarker.copyFragmentTexts(event);" />
+             oncommand="webmarkerNS.webmarker.copyFragmentTexts(event);" />
   </commandset>
 
   <!-- Menu-items of the 'Tools' menu -->
@@ -95,7 +95,7 @@
           insertafter="devToolsSeparator">
 
       <menupopup onpopupshowing=
-                 "webmarker.handleOptionUpdation(event, content.document);">
+                 "webmarkerNS.webmarker.handleOptionUpdation(event, content.document);">
 
         <menuitem id="menu-webmarker-mark-selection" 
             label="&context.mark-text.label;"
@@ -156,7 +156,7 @@
     <menuseparator id="webmarker-context-separator" />
     <menu label="&webmarker.title;">
       <menupopup onpopupshowing=
-                 "webmarker.handleOptionUpdation(event, content.document);">
+                 "webmarkerNS.webmarker.handleOptionUpdation(event, content.document);">
         <menuitem id="context-webmarker-notext" 
                   label="&context.no-text-selected.label;"
                   disabled="true" />

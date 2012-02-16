@@ -22,12 +22,12 @@
 */
 
 /* The main webmarker GUI handling functions */
-var webmarkerOverlay = {
+webmarkerNS.overlay = {
     /* Function called when a tab is selected. */
     onTabFocus: function(e)
     {
         var currentDoc = commonUtils.getCurrentTab().contentDocument;
-        webmarker.handleOptionUpdation(e, currentDoc);
+        webmarkerNS.webmarker.handleOptionUpdation(e, currentDoc);
     },
 
     /* Function called when a portion of a web-page is marked. */
@@ -44,7 +44,7 @@ var webmarkerOverlay = {
             if(commonUtils.isOverlappedSelection(currentDoc, range)) {
                 alert(commonUtils.getLocalizedString('mark.overlap-message'));
             } else {
-                webmarker.markRange(currentDoc, range);
+                webmarkerNS.webmarker.markRange(currentDoc, range);
             }
             return;
         } else {
@@ -61,21 +61,21 @@ var webmarkerOverlay = {
         var currentTab = commonUtils.getCurrentTab();
         var currentDoc = currentTab.contentDocument;
         commonUtils.copyToClipboard(
-            liveurls.getLiveURL(currentDoc, false, currentTab.focussedMark));
+            webmarkerNS.liveurls.getLiveURL(currentDoc, false, currentTab.focussedMark));
     },
 
     /* Function to copy the LiveURL of a marked web-page. */
     onCopyDocumentLiveURL: function(e)
     {
         var currentDoc = commonUtils.getCurrentTab().contentDocument;
-        commonUtils.copyToClipboard(liveurls.getLiveURL(currentDoc, true));
+        commonUtils.copyToClipboard(webmarkerNS.liveurls.getLiveURL(currentDoc, true));
     },
 
     /* Function called to bookmark a marked web-page. */
     onBookmarkLiveURL: function(e)
     {
         var currentDoc = commonUtils.getCurrentTab().contentDocument;
-        commonUtils.bookmarkURL(liveurls.getLiveURL(currentDoc, true));
+        commonUtils.bookmarkURL(webmarkerNS.liveurls.getLiveURL(currentDoc, true));
     },
 
     /* Function called to bookmark a selection on a web-page. */
@@ -85,7 +85,7 @@ var webmarkerOverlay = {
         var currentDoc = commonUtils.getCurrentTab().contentDocument;
         var currentTab = commonUtils.getTabOfDocument(currentDoc);
         var liveURL = 
-            liveurls.getLiveURL(false, currentTab.focussedMark);
+            webmarkerNS.liveurls.getLiveURL(false, currentTab.focussedMark);
         commonUtils.bookmarkURL(liveURL);
     },
 
@@ -103,14 +103,14 @@ var webmarkerOverlay = {
         fragmentIDs = unescape(fragmentIDs);
         
         /* initialize web marks */
-        webmarker.initMarks(currentDoc);
+        webmarkerNS.webmarker.initMarks(currentDoc);
 
         while(fragmentIDs.length > 0) {
             var lenOfFragmentID = parseInt(fragmentIDs.substr(0, 2), 16);
             var fragmentID = fragmentIDs.substr(2, lenOfFragmentID); 
             if(fragmentID) {
                 // fragmentID = unescape(fragmentID);
-                if(liveurls.processSearchFragmentID(currentDoc, fragmentID)) {
+                if(webmarkerNS.liveurls.processSearchFragmentID(currentDoc, fragmentID)) {
                     this.handleFailure(currentDoc, fragmentID);
                 }
             } else {
@@ -120,16 +120,16 @@ var webmarkerOverlay = {
         }
 
         /* focus first mark of the page if it is there */
-        if(webmarker.isMarkedPage(currentDoc)) {
+        if(webmarkerNS.webmarker.isMarkedPage(currentDoc)) {
             var currentTab = commonUtils.getTabOfDocument(currentDoc);
 
             var previousFocussedMark = currentTab.focussedMark;
-            webmarker.repaintMark(currentDoc, 
+            webmarkerNS.webmarker.repaintMark(currentDoc, 
                 currentTab.marks[previousFocussedMark], 
                 "rgb(255, 255, 0)");
 
             currentTab.focussedMark = 0;
-            webmarker.focusMark(currentDoc, 
+            webmarkerNS.webmarker.focusMark(currentDoc, 
                 currentTab.marks[currentTab.focussedMark]);
         }
     },
@@ -138,14 +138,14 @@ var webmarkerOverlay = {
     onClearAllMarks: function()
     {
         var currentDoc = commonUtils.getCurrentTab().contentDocument;
-        webmarker.clearMarks(currentDoc, "*");
+        webmarkerNS.webmarker.clearMarks(currentDoc, "*");
     },
 
     /* Clears a particular mark on a marked web-page. */
     onClearMark: function()
     {
         var currentDoc = commonUtils.getCurrentTab().contentDocument;
-        webmarker.clearMarks(currentDoc, webmarker.markForDeletion);
+        webmarkerNS.webmarker.clearMarks(currentDoc, webmarker.markForDeletion);
     },
 
     /* This function handles the failure of processing of a LiveURL.
@@ -173,35 +173,35 @@ var webmarkerOverlay = {
 window.addEventListener("load", function(e) {
     var container = gBrowser.mPanelContainer;
     container.addEventListener("select", function(e) { 
-        webmarkerOverlay.onTabFocus(e); 
+        webmarkerNS.overlay.onTabFocus(e); 
     }, false);
-    webmarkerOverlay.processURL(e); 
+    webmarkerNS.overlay.processURL(e); 
 }, false);
 
 /* Page Show. is important to handle back/forward buttons */
 window.addEventListener("pageshow", function(e) {
-    webmarkerOverlay.processURL(e); 
+    webmarkerNS.overlay.processURL(e); 
 }, false);
 
 /* Click event of the mouse on the web-page */
 /*
 window.addEventListener("click", function(e) {
     var currentDoc = content.document;
-    webmarker.handleTextSelection(e, currentDoc);
-    webmarker.markSelectionMode(currentDoc);
+    webmarkerNS.webmarker.handleTextSelection(e, currentDoc);
+    webmarkerNS.webmarker.markSelectionMode(currentDoc);
 }, false);
 */
 
 /* Mouseup event on the web-page */
 window.addEventListener("mouseup", function(e) {
     var currentDoc = content.document;
-    webmarker.handleTextSelection(e, currentDoc); 
-    webmarker.markSelectionMode(currentDoc);
+    webmarkerNS.webmarker.handleTextSelection(e, currentDoc); 
+    webmarkerNS.webmarker.markSelectionMode(currentDoc);
 }, false);
 
 /* Keyup event on the web-page */
 window.addEventListener("keyup", function(e) {
     var currentDoc = content.document;
-    webmarker.handleTextSelection(e, currentDoc); 
-    webmarker.markSelectionMode(currentDoc);
+    webmarkerNS.webmarker.handleTextSelection(e, currentDoc); 
+    webmarkerNS.webmarker.markSelectionMode(currentDoc);
 }, false);

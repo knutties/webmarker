@@ -21,7 +21,7 @@
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-var liveurls = {
+webmarkerNS.liveurls = {
 
     /* holds the length of text each node contributes */
     nodeOffsetList: [],
@@ -31,7 +31,7 @@ var liveurls = {
      * should ideally be picked up from options.  Other ways of
      * processing a range be found in the utils.js file.
      */
-    process: function(doc, i) { return webmarker.markRange(doc, i, true); },
+    process: function(doc, i) { return webmarkerNS.webmarker.markRange(doc, i, true); },
 
     /* Creates a string representation of a given range and keeps track of
      * which node in the tree contributed to which portion of the string
@@ -182,7 +182,7 @@ var liveurls = {
         spanNode.setAttribute("style", "background-color: rgb(0, 255, 0); color: rgb(0, 0, 0);");
         spanNode.setAttribute("class", 'livetext');
 
-        spanNode.setAttribute("title", webmarker.markTitle);
+        spanNode.setAttribute("title", webmarkerNS.webmarker.markTitle);
 
         spanNode.appendChild( clonedTextNode );
         nodeParent.replaceChild(spanNode, aTextNode);
@@ -368,7 +368,7 @@ var liveurls = {
                 break;
             }
 
-            var crc = crc32.crc(portion);
+            var crc = webmarkerNS.crc32.crc(portion);
             if((crc == checksum)) {
                 var end = start + length;
                 var range = 
@@ -430,7 +430,7 @@ var liveurls = {
             }
 
             /* string is finalized, calculate checksum */
-            var crc = crc32.crc(selectedString);
+            var crc = webmarkerNS.crc32.crc(selectedString);
 
             /* we are not going to use delimiters between all fields, the
              * fragment ID consists of following fields

@@ -21,7 +21,9 @@
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-var webmarker = {
+var webmarkerNS = {};
+
+webmarkerNS.webmarker = {
 
     /* how many pixels should be between the top of the page and the
      *  focussed mark
@@ -60,9 +62,9 @@ var webmarker = {
             var fragmentText = selection.toString();
 
             var returnInfo = 
-                liveurls.processTextRange(currentDoc, range, true, false, true);
+                webmarkerNS.liveurls.processTextRange(currentDoc, range, true, false, true);
             var fragmentID =
-                liveurls.getFragmentIdentifierForString(returnInfo.rangeString);
+                webmarkerNS.liveurls.getFragmentIdentifierForString(returnInfo.rangeString);
 
             if(fragmentID.length > 0) {
                 this.addMark(currentDoc, fragmentID, this.markTitle, 
@@ -559,7 +561,7 @@ var webmarker = {
             if(popupNode.getAttribute("class") == "livetext") {
                 this.showClearMarkOption("context");
                 var title = popupNode.getAttribute("title");
-                webmarker.markForDeletion = title;
+                webmarkerNS.webmarker.markForDeletion = title;
             } else {
                 this.hideClearMarkOption("context");
             }
