@@ -1,6 +1,6 @@
-content	liveurls	chrome/content/
-locale	liveurls	en-US	chrome/locale/en-US/
-locale	liveurls	it	chrome/locale/it/
-skin	liveurls	classic/1.0	chrome/skin/
+content	webmarker	chrome/content/
+locale	webmarker	en-US	chrome/locale/en-US/
+locale	webmarker	it	chrome/locale/it/
+skin	webmarker	classic/1.0	chrome/skin/
 
-overlay	chrome://browser/content/browser.xul chrome://liveurls/content/overlay.xul
+overlay	chrome://browser/content/browser.xul chrome://webmarker/content/overlay.xul

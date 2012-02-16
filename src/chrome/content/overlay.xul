@@ -1,89 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet href="chrome://liveurls/skin/overlay.css" type="text/css"?>
+<?xml-stylesheet href="chrome://webmarker/skin/overlay.css" type="text/css"?>
 
-<!DOCTYPE overlay SYSTEM "chrome://liveurls/locale/liveurls.dtd">
+<!DOCTYPE overlay SYSTEM "chrome://webmarker/locale/webmarker.dtd">
 
-<overlay id="liveurls-overlay"
+<overlay id="webmarker-overlay"
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   <!-- Included javascript files of the extension, -->
   <script type="application/x-javascript" 
-          src="chrome://liveurls/content/utils.js" />
+          src="chrome://webmarker/content/utils.js" />
   <script type="application/x-javascript" 
-          src="chrome://liveurls/content/webmarker.js" />
+          src="chrome://webmarker/content/webmarker.js" />
   <script type="application/x-javascript" 
-          src="chrome://liveurls/content/dom.js" />
+          src="chrome://webmarker/content/dom.js" />
   <script type="application/x-javascript" 
-          src="chrome://liveurls/content/liveurls.js" />
+          src="chrome://webmarker/content/liveurls.js" />
   <script type="application/x-javascript" 
-          src="chrome://liveurls/content/overlay.js" />
+          src="chrome://webmarker/content/overlay.js" />
   <script type="application/x-javascript" 
-          src="chrome://liveurls/content/crc32.js" />
+          src="chrome://webmarker/content/crc32.js" />
 
   <stringbundleset id="stringbundleset">
-    <stringbundle id="liveurls-strings" src="chrome://liveurls/locale/liveurls.properties" />
+    <stringbundle id="webmarker-strings" src="chrome://webmarker/locale/webmarker.properties" />
   </stringbundleset>
   
   <!-- List of keyboard shortcuts -->
   <keyset id="mainKeyset">
     <key id="keyMarkerNavigateUp" 
          modifiers="accel" keycode="VK_UP"
-         command="cmd_liveurls_goto_previous_mark" />
+         command="cmd_webmarker_goto_previous_mark" />
     <key id="keyMarkerNavigateDown" 
          modifiers="accel" keycode="VK_DOWN"
-         command="cmd_liveurls_goto_next_mark" />
+         command="cmd_webmarker_goto_next_mark" />
     <key id="keyMarker" 
          modifiers="accel alt" key="M"
-         command="cmd_liveurls_mark_selection" />
+         command="cmd_webmarker_mark_selection" />
     <key id="keyMarkerTextSelection" 
          modifiers="accel alt" key="S"
-         command="cmd_liveurls_copy_link_to_selection" />
+         command="cmd_webmarker_copy_link_to_selection" />
     <key id="keyMarkerClearMarks" 
          modifiers="accel alt" key="A"
-         command="cmd_liveurls_clear_all_marks" />
+         command="cmd_webmarker_clear_all_marks" />
     <key id="keyMarkerMarkedDocument" 
          modifiers="accel alt" key="C"
-         command="cmd_liveurls_copy_link_to_marked_document" />
+         command="cmd_webmarker_copy_link_to_marked_document" />
   </keyset>
 
   <!-- List of command-sets -->
   <commandset id="mainCommandSet">
-    <command id="cmd_liveurls_mark_selection"
+    <command id="cmd_webmarker_mark_selection"
              disabled="false"
              oncommand="webmarkerOverlay.onMarkSelection(event);" />
 
-    <command id="cmd_liveurls_copy_link_to_selection"
+    <command id="cmd_webmarker_copy_link_to_selection"
              disabled="true"
              oncommand="webmarkerOverlay.onCopySelectionLiveURL(event);" />
 
-    <command id="cmd_liveurls_copy_link_to_marked_document"
+    <command id="cmd_webmarker_copy_link_to_marked_document"
              disabled="true"
              oncommand="webmarkerOverlay.onCopyDocumentLiveURL(event);" />
 
-    <command id="cmd_liveurls_bookmark_selection"
+    <command id="cmd_webmarker_bookmark_selection"
              disabled="true"
              oncommand="webmarkerOverlay.onBookmarkSelection(event);" />
 
-    <command id="cmd_liveurls_bookmark_marked_document"
+    <command id="cmd_webmarker_bookmark_marked_document"
              disabled="true"
              oncommand="webmarkerOverlay.onBookmarkLiveURL(event);" />
 
-    <command id="cmd_liveurls_clear_all_marks"
+    <command id="cmd_webmarker_clear_all_marks"
              disabled="true"
              oncommand="webmarkerOverlay.onClearAllMarks(event);" />
 
-    <command id="cmd_liveurls_clear_mark"
+    <command id="cmd_webmarker_clear_mark"
              disabled="true"
              oncommand="webmarkerOverlay.onClearMark(event);" />
 
-    <command id="cmd_liveurls_goto_next_mark"
+    <command id="cmd_webmarker_goto_next_mark"
              disabled="true"
              oncommand="webmarker.focusNextMark(event);" />
 
-    <command id="cmd_liveurls_goto_previous_mark"
+    <command id="cmd_webmarker_goto_previous_mark"
              disabled="true"
              oncommand="webmarker.focusPreviousMark(event);" />
 
-    <command id="cmd_liveurls_copy_fragments"
+    <command id="cmd_webmarker_copy_fragments"
              disabled="true"
              oncommand="webmarker.copyFragmentTexts(event);" />
   </commandset>
@@ -97,128 +97,128 @@
       <menupopup onpopupshowing=
                  "webmarker.handleOptionUpdation(event, content.document);">
 
-        <menuitem id="menu-liveurls-mark-selection" 
+        <menuitem id="menu-webmarker-mark-selection" 
             label="&context.mark-text.label;"
             hidden="true"
             key="keyMarker"
-            command="cmd_liveurls_mark_selection" />
+            command="cmd_webmarker_mark_selection" />
 
         <menuitem
             label="&context.copy-to-selection.label;"
             disabled="true"
             key="keyMarkerTextSelection"
-            command="cmd_liveurls_copy_link_to_selection" />
+            command="cmd_webmarker_copy_link_to_selection" />
 
         <menuitem
             label="&context.copy-to-document.label;"
             disabled="true"
             key="keyMarkerMarkedDocument"
-            command="cmd_liveurls_copy_link_to_marked_document" />
+            command="cmd_webmarker_copy_link_to_marked_document" />
 
         <menuitem
             label="&context.bookmark-document.label;"
             disabled="true"
-            command="cmd_liveurls_bookmark_marked_document" />
+            command="cmd_webmarker_bookmark_marked_document" />
 
         <!--menuitem 
             label="Bookmark selected text ..."
             disabled="true"
-            command="cmd_liveurls_bookmark_selection"/-->
+            command="cmd_webmarker_bookmark_selection"/-->
 
         <menuitem 
             label="&context.clear-all-marks.label;"
             disabled="true"
             key="keyMarkerClearMarks"
-            command="cmd_liveurls_clear_all_marks" />
+            command="cmd_webmarker_clear_all_marks" />
 
         <menuitem 
             label="&context.copy-fragments.label;"
             disabled="true"
-            command="cmd_liveurls_copy_fragments" />
+            command="cmd_webmarker_copy_fragments" />
 
         <menuitem
             label="&context.next-mark.label;"
             disabled="true"
             key="keyMarkerNavigateUp"
-            command="cmd_liveurls_goto_next_mark" />
+            command="cmd_webmarker_goto_next_mark" />
 
         <menuitem
             label="&context.previous-mark.label;"
             disabled="true"
             key="keyMarkerNavigateDown"
-            command="cmd_liveurls_goto_previous_mark" />
+            command="cmd_webmarker_goto_previous_mark" />
       </menupopup>
     </menu>
   </menupopup>
 
   <!-- Right-click menu items -->
   <popup id="contentAreaContextMenu">
-    <menuseparator id="liveurls-context-separator" />
+    <menuseparator id="webmarker-context-separator" />
     <menu label="&webmarker.title;">
       <menupopup onpopupshowing=
                  "webmarker.handleOptionUpdation(event, content.document);">
-        <menuitem id="context-liveurls-notext" 
+        <menuitem id="context-webmarker-notext" 
                   label="&context.no-text-selected.label;"
                   disabled="true" />
 
-        <menuitem id="context-liveurls-mark-selection" 
+        <menuitem id="context-webmarker-mark-selection" 
                   label="&context.mark-text.label;"
                   hidden="true"
                   key="keyMarker"
-                  command="cmd_liveurls_mark_selection" />
+                  command="cmd_webmarker_mark_selection" />
 
-        <menuitem id="context-liveurls-selection" 
+        <menuitem id="context-webmarker-selection" 
                   label="&context.copy-to-selection.label;"
                   hidden="true"
                   key="keyMarkerTextSelection"
-                  command="cmd_liveurls_copy_link_to_selection" />
+                  command="cmd_webmarker_copy_link_to_selection" />
 
-        <menuitem id="context-liveurls-search" 
+        <menuitem id="context-webmarker-search" 
                   label="&context.copy-to-document.label;"
                   hidden="true"
                   key="keyMarkerMarkedDocument"
-                  command="cmd_liveurls_copy_link_to_marked_document" />
+                  command="cmd_webmarker_copy_link_to_marked_document" />
 
-        <menuitem id="context-liveurls-bookmark-document" 
+        <menuitem id="context-webmarker-bookmark-document" 
                   label="&context.bookmark-document.label;"
                   hidden="true"
-                  command="cmd_liveurls_bookmark_marked_document" />
+                  command="cmd_webmarker_bookmark_marked_document" />
 
-        <!--menuitem id="context-liveurls-bookmark-selection"
+        <!--menuitem id="context-webmarker-bookmark-selection"
             label="Bookmark selected text ..."
             hidden="true"
-            command="cmd_liveurls_bookmark_selection"/-->
+            command="cmd_webmarker_bookmark_selection"/-->
 
-        <menuitem id="context-liveurls-clearmark"
+        <menuitem id="context-webmarker-clearmark"
                   label="&context.clear-this-mark.label;"
                   hidden="true"
-                  command="cmd_liveurls_clear_mark" />
+                  command="cmd_webmarker_clear_mark" />
 
-        <menuitem id="context-liveurls-clearhighlight"
+        <menuitem id="context-webmarker-clearhighlight"
                   label="&context.clear-all-marks.label;"
                   hidden="true"
                   key="keyMarkerClearMarks"
-                  command="cmd_liveurls_clear_all_marks" />
+                  command="cmd_webmarker_clear_all_marks" />
 
-        <menuitem id="context-liveurls-copy-fragments"
+        <menuitem id="context-webmarker-copy-fragments"
                   label="&context.copy-fragments.label;"
                   hidden="true"
-                  command="cmd_liveurls_copy_fragments" />
+                  command="cmd_webmarker_copy_fragments" />
 
         <menu label="&context.navigation.label;" 
-              id="context-liveurls-navigation-menu"
+              id="context-webmarker-navigation-menu"
               hidden="true">
 
           <menupopup>
             <menuitem label="&context.next-mark.label;"
                       disabled="true"
                       key="keyMarkerNavigateUp"
-                      command="cmd_liveurls_goto_next_mark" />
+                      command="cmd_webmarker_goto_next_mark" />
 
             <menuitem label="&context.previous-mark.label;"
                       disabled="true"
                       key="keyMarkerNavigateDown"
-                      command="cmd_liveurls_goto_previous_mark" />
+                      command="cmd_webmarker_goto_previous_mark" />
           </menupopup>
         </menu>
       </menupopup>
@@ -235,100 +235,100 @@
 
       <toolbarbutton id="webmarker-mark-button"
                      tooltiptext="&button.mark-text.tooltip;"
-                     image="chrome://liveurls/skin/marker.png"
+                     image="chrome://webmarker/skin/marker.png"
                      label="&button.mark-single.label;"
-                     command="cmd_liveurls_mark_selection" />
+                     command="cmd_webmarker_mark_selection" />
 
       <toolbarbutton id="webmarker-clearall-button"
                      tooltiptext="&button.clear-all-marks.tooltip;"
-                     image="chrome://liveurls/skin/eraser_greyed.png"
+                     image="chrome://webmarker/skin/eraser_greyed.png"
                      label="&button.clear-all-marks.label;"
-                     command="cmd_liveurls_clear_all_marks" />
+                     command="cmd_webmarker_clear_all_marks" />
 
       <toolbarbutton id="webmarker-bookmark-document"
                      tooltiptext="&button.bookmark-document.tooltip;"
-                     image="chrome://liveurls/skin/bookmark_greyed.png"
+                     image="chrome://webmarker/skin/bookmark_greyed.png"
                      label="&button.bookmark-document.label;"
-                     command="cmd_liveurls_bookmark_marked_document" />
+                     command="cmd_webmarker_bookmark_marked_document" />
 
       <toolbarbutton id="webmarker-clipboard-document"
                      tooltiptext="&button.copy-to-document.tooltip;"
-                     image="chrome://liveurls/skin/link_greyed.png"
+                     image="chrome://webmarker/skin/link_greyed.png"
                      label="&button.copy-to-document.label;"
-                     command="cmd_liveurls_copy_link_to_marked_document" />
+                     command="cmd_webmarker_copy_link_to_marked_document" />
 
       <toolbarbutton id="webmarker-previous-button"
                      tooltiptext="&button.previous-mark.tooltip;"
-                     image="chrome://liveurls/skin/previous_greyed.png"
+                     image="chrome://webmarker/skin/previous_greyed.png"
                      label="&button.previous-mark.label;"
-                     command="cmd_liveurls_goto_previous_mark" />
+                     command="cmd_webmarker_goto_previous_mark" />
 
       <toolbarbutton id="webmarker-next-button"
                      tooltiptext="&button.next-mark.tooltip;"
-                     image="chrome://liveurls/skin/next_greyed.png"
+                     image="chrome://webmarker/skin/next_greyed.png"
                      label="&button.next-mark.label;"
-                     command="cmd_liveurls_goto_next_mark" />
+                     command="cmd_webmarker_goto_next_mark" />
 
       <toolbarbutton id="webmarker-copy-fragments"
                      tooltiptext="&button.copy-fragments.tooltip;"
-                     image="chrome://liveurls/skin/copy_fragments_greyed.png"
+                     image="chrome://webmarker/skin/copy_fragments_greyed.png"
                      label="&context.copy-fragments.label;"
-                     command="cmd_liveurls_copy_fragments" />
+                     command="cmd_webmarker_copy_fragments" />
 
     </toolbar>
 
     <toolbarpalette id="BrowserToolbarPalette">
       <toolbarbutton id="webmarker-mark-button-floating"
                      class="toolbarbutton-1 chromeclass-toolbar-additional"
-                     image="chrome://liveurls/skin/marker.png"
+                     image="chrome://webmarker/skin/marker.png"
                      tooltiptext="&button.mark-text.tooltip;"
                      label="&button.mark-single.label;"
                      insertafter="home-button"
                      type="checkbox"
                      checkState="0"
-                     command="cmd_liveurls_mark_selection" />
+                     command="cmd_webmarker_mark_selection" />
 
       <toolbarbutton id="webmarker-clearall-button-floating"
                      class="toolbarbutton-1 chromeclass-toolbar-additional"
                      tooltiptext="&button.clear-all-marks.tooltip;"
-                     image="chrome://liveurls/skin/eraser.png"
+                     image="chrome://webmarker/skin/eraser.png"
                      label="&button.clear-all-marks.label;"
-                     command="cmd_liveurls_clear_all_marks" />
+                     command="cmd_webmarker_clear_all_marks" />
 
       <toolbarbutton id="webmarker-bookmark-document-floating"
                      class="toolbarbutton-1 chromeclass-toolbar-additional"
                      tooltiptext="&button.bookmark-document.tooltip;"
-                     image="chrome://liveurls/skin/bookmark.png"
+                     image="chrome://webmarker/skin/bookmark.png"
                      label="&button.bookmark-document.label;"
-                     command="cmd_liveurls_bookmark_marked_document" />
+                     command="cmd_webmarker_bookmark_marked_document" />
 
       <toolbarbutton id="webmarker-clipboard-document-floating"
                      class="toolbarbutton-1 chromeclass-toolbar-additional"
                      tooltiptext="&button.copy-to-document.tooltip;"
-                     image="chrome://liveurls/skin/link.png"
+                     image="chrome://webmarker/skin/link.png"
                      label="&button.copy-to-document.label;"
-                     command="cmd_liveurls_copy_link_to_marked_document" />
+                     command="cmd_webmarker_copy_link_to_marked_document" />
 
       <toolbarbutton id="webmarker-previous-button-floating"
                      class="toolbarbutton-1 chromeclass-toolbar-additional"
                      tooltiptext="&button.previous-mark.tooltip;"
-                     image="chrome://liveurls/skin/previous.png"
+                     image="chrome://webmarker/skin/previous.png"
                      label="&button.previous-mark.label;"
-                     command="cmd_liveurls_goto_previous_mark" />
+                     command="cmd_webmarker_goto_previous_mark" />
 
       <toolbarbutton id="webmarker-next-button-floating"
                      class="toolbarbutton-1 chromeclass-toolbar-additional"
                      tooltiptext="&button.next-mark.tooltip;"
-                     image="chrome://liveurls/skin/next.png"
+                     image="chrome://webmarker/skin/next.png"
                      label="&button.next-mark.label;"
-                     command="cmd_liveurls_goto_next_mark" />
+                     command="cmd_webmarker_goto_next_mark" />
 
       <toolbarbutton id="webmarker-copy-fragments-floating"
                      class="toolbarbutton-1 chromeclass-toolbar-additional"
                      tooltiptext="&button.copy-fragments.tooltip;"
-                     image="chrome://liveurls/skin/copy_fragments.png"
+                     image="chrome://webmarker/skin/copy_fragments.png"
                      label="&context.copy-fragments.label;"
-                     command="cmd_liveurls_copy_fragments" />
+                     command="cmd_webmarker_copy_fragments" />
     </toolbarpalette>
   </toolbox>
 </overlay>

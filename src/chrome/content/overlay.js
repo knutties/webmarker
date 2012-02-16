@@ -99,12 +99,12 @@ var webmarkerOverlay = {
         }
 
         var fragmentIDs = currentDoc.location.hash.substr(1);
-        /* initialize web marks */
-        webmarker.initMarks(currentDoc);
-
         /* unescape and get original info */
         fragmentIDs = unescape(fragmentIDs);
         
+        /* initialize web marks */
+        webmarker.initMarks(currentDoc);
+
         while(fragmentIDs.length > 0) {
             var lenOfFragmentID = parseInt(fragmentIDs.substr(0, 2), 16);
             var fragmentID = fragmentIDs.substr(2, lenOfFragmentID); 

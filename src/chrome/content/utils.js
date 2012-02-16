@@ -45,7 +45,7 @@ var commonUtils = {
          * the text nodes that we consider
          */
 
-        str = str.replace(commonUtils.unWantedChars, "");
+        str = str.replace(this.unWantedChars, "");
         return str;
     },
 
@@ -53,7 +53,7 @@ var commonUtils = {
     selectRange: function(range)
     {
         var selection = 
-            commonUtils.getTabOfDocument().contentWindow.getSelection();
+            this.getTabOfDocument().contentWindow.getSelection();
         if(selection.rangeCount > 0)
             selection.removeAllRanges();
         selection.addRange(range);
@@ -145,7 +145,7 @@ var commonUtils = {
         var uri = makeURI(url, null, null);
         try {
             var newBkmkId = bmsvc.insertBookmark(menuFolder, uri, bmsvc.DEFAULT_INDEX, title);
-            alert(commonUtils.getLocalizedString('context.bookmark-added') + ' ' + url);
+            alert(this.getLocalizedString('context.bookmark-added') + ' ' + url);
         } catch(e) {
         
         }
@@ -161,17 +161,20 @@ var commonUtils = {
 
     getTabOfDocument: function(currentDoc)
     {
+        /*
         var index = gBrowser.getBrowserIndexForDocument(currentDoc);
         if(index < 0) {
             return null;
         } else {
             return gBrowser.getBrowserAtIndex(index);
         }
+        */
+        return gBrowser.getBrowserForDocument(currentDoc);
     },
 
     isTextSelected: function(currentDoc)
     {
-        var currentTab = commonUtils.getTabOfDocument(currentDoc);
+        var currentTab = this.getTabOfDocument(currentDoc);
         var selectionLen = 
             currentTab.contentWindow.getSelection().toString().length;
 
@@ -265,7 +268,7 @@ var commonUtils = {
         var common = {
           _bundle: Components.classes["@mozilla.org/intl/stringbundle;1"]  
                    .getService(Components.interfaces.nsIStringBundleService)  
-                   .createBundle("chrome://liveurls/locale/liveurls.properties"),  
+                   .createBundle("chrome://webmarker/locale/webmarker.properties"),  
           
            getLocalizedMessage: function(msg) {  
               return this._bundle.GetStringFromName(msg);  

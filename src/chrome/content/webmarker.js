@@ -570,41 +570,41 @@ var webmarker = {
     showSelectionOptions: function(place)
     {
         /* Enable the mark selection menuitem. */
-        document.getElementById(place + "-liveurls-mark-selection").
+        document.getElementById(place + "-webmarker-mark-selection").
         setAttribute("hidden", false);
         /* Enable the copy link to selected text menuitem. */
-        document.getElementById(place + "-liveurls-selection").
+        document.getElementById(place + "-webmarker-selection").
         setAttribute("hidden", false);
         /*
-          document.getElementById(place + "-liveurls-bookmark-selection").
+          document.getElementById(place + "-webmarker-bookmark-selection").
           setAttribute("hidden", false);
         */
 
         /* quirk to handle the menu option, got to remove this */
-        document.getElementById("menu-liveurls-mark-selection").
+        document.getElementById("menu-webmarker-mark-selection").
         setAttribute("hidden", false);
 
         /* Enable the corresponding commands for the menuitems
          *  enabled above.
          */
-        //document.getElementById("cmd_liveurls_mark_selection").
+        //document.getElementById("cmd_webmarker_mark_selection").
         //setAttribute("disabled", false);
-        document.getElementById("cmd_liveurls_copy_link_to_selection").
+        document.getElementById("cmd_webmarker_copy_link_to_selection").
         setAttribute("disabled", false);
 
-        /* document.getElementById("cmd_liveurls_bookmark_selection").
+        /* document.getElementById("cmd_webmarker_bookmark_selection").
          * setAttribute("disabled", false);
          */
             
         /* handle images for marker */
         /*
         var marker = document.getElementById("webmarker-mark-button");
-        marker.setAttribute("image", "chrome://liveurls/skin/marker.png");
+        marker.setAttribute("image", "chrome://webmarker/skin/marker.png");
 
         marker =
         document.getElementById("webmarker-mark-button-floating");
         if(marker) {
-            marker.setAttribute("image", "chrome://liveurls/skin/marker.png");
+            marker.setAttribute("image", "chrome://webmarker/skin/marker.png");
         }
         */
     },
@@ -613,27 +613,27 @@ var webmarker = {
     hideSelectionOptions: function(place)
     {
         /* Disable the mark selection menuitem */
-        document.getElementById(place + "-liveurls-mark-selection").
+        document.getElementById(place + "-webmarker-mark-selection").
         setAttribute("hidden", true);
         /* Disable the copy link and bookmark selected text items  */
-        document.getElementById(place + "-liveurls-selection").
+        document.getElementById(place + "-webmarker-selection").
         setAttribute("hidden", true);
         /*
-          document.getElementById(place + "-liveurls-bookmark-selection").
+          document.getElementById(place + "-webmarker-bookmark-selection").
           setAttribute("hidden", true);
         */
 
         /* quirk to handle the menu option, got to remove this */
-        document.getElementById("menu-liveurls-mark-selection").
+        document.getElementById("menu-webmarker-mark-selection").
         setAttribute("hidden", true);
 
         /* Disable the corresponding commands. */
-        //document.getElementById("cmd_liveurls_mark_selection").
+        //document.getElementById("cmd_webmarker_mark_selection").
         //setAttribute("disabled", true);
-        document.getElementById("cmd_liveurls_copy_link_to_selection").
+        document.getElementById("cmd_webmarker_copy_link_to_selection").
         setAttribute("disabled", true);
         /*
-          document.getElementById("cmd_liveurls_bookmark_selection").
+          document.getElementById("cmd_webmarker_bookmark_selection").
           setAttribute("disabled", true);
         */
 
@@ -641,13 +641,13 @@ var webmarker = {
         /*
         var marker = document.getElementById("webmarker-mark-button");
         marker.setAttribute("image",
-                            "chrome://liveurls/skin/marker_greyed.png");
+                            "chrome://webmarker/skin/marker_greyed.png");
 
         marker =
         document.getElementById("webmarker-mark-button-floating");
         if(marker) {
             marker.setAttribute("image",
-                                "chrome://liveurls/skin/marker_greyed.png");
+                                "chrome://webmarker/skin/marker_greyed.png");
         }
         */
     },
@@ -655,24 +655,24 @@ var webmarker = {
     /* on the page being marked, enable relevant options */
     showMarkOptions: function(currentDoc, place)
     {
-        document.getElementById(place + "-liveurls-search").
+        document.getElementById(place + "-webmarker-search").
         setAttribute("hidden", false);
-        document.getElementById(place + "-liveurls-clearhighlight").
+        document.getElementById(place + "-webmarker-clearhighlight").
         setAttribute("hidden", false);
-        document.getElementById(place + "-liveurls-bookmark-document").
+        document.getElementById(place + "-webmarker-bookmark-document").
         setAttribute("hidden", false);
-        document.getElementById(place + "-liveurls-navigation-menu").
+        document.getElementById(place + "-webmarker-navigation-menu").
         setAttribute("hidden", false);
-        document.getElementById(place + "-liveurls-copy-fragments").
+        document.getElementById(place + "-webmarker-copy-fragments").
         setAttribute("hidden", false);
         
-        document.getElementById("cmd_liveurls_copy_link_to_marked_document").
+        document.getElementById("cmd_webmarker_copy_link_to_marked_document").
         setAttribute("disabled", false);
-        document.getElementById("cmd_liveurls_clear_all_marks").
+        document.getElementById("cmd_webmarker_clear_all_marks").
         setAttribute("disabled", false);
-        document.getElementById("cmd_liveurls_bookmark_marked_document").
+        document.getElementById("cmd_webmarker_bookmark_marked_document").
         setAttribute("disabled", false);
-        document.getElementById("cmd_liveurls_copy_fragments").
+        document.getElementById("cmd_webmarker_copy_fragments").
         setAttribute("disabled", false);
 
         var currentTab = commonUtils.getTabOfDocument(currentDoc);
@@ -688,69 +688,69 @@ var webmarker = {
          * the floating buttons
          */
         var link = document.getElementById("webmarker-clipboard-document");
-        link.setAttribute("image", "chrome://liveurls/skin/link.png");
+        link.setAttribute("image", "chrome://webmarker/skin/link.png");
 
         link = 
         document.getElementById("webmarker-clipboard-document-floating");
         if(link) {
-            link.setAttribute("image", "chrome://liveurls/skin/link.png");
+            link.setAttribute("image", "chrome://webmarker/skin/link.png");
         }
 
         var bookmark =
         document.getElementById("webmarker-bookmark-document");
-        bookmark.setAttribute("image", "chrome://liveurls/skin/bookmark.png");
+        bookmark.setAttribute("image", "chrome://webmarker/skin/bookmark.png");
 
         bookmark =
         document.getElementById("webmarker-bookmark-document-floating");
         if(bookmark) {
             bookmark.setAttribute("image", 
-                                  "chrome://liveurls/skin/bookmark.png");
+                                  "chrome://webmarker/skin/bookmark.png");
         }
 
         var eraser =
         document.getElementById("webmarker-clearall-button");
-        eraser.setAttribute("image", "chrome://liveurls/skin/eraser.png");
+        eraser.setAttribute("image", "chrome://webmarker/skin/eraser.png");
 
         eraser =
         document.getElementById("webmarker-clearall-button-floating");
         if(eraser) {
-            eraser.setAttribute("image", "chrome://liveurls/skin/eraser.png");
+            eraser.setAttribute("image", "chrome://webmarker/skin/eraser.png");
         }
 
         var copyFragments = 
         document.getElementById("webmarker-copy-fragments");
         copyFragments.
-        setAttribute("image", "chrome://liveurls/skin/copy_fragments.png");
+        setAttribute("image", "chrome://webmarker/skin/copy_fragments.png");
 
         copyFragments = 
         document.getElementById("webmarker-copy-fragments-floating");
         if(copyFragments) {
             copyFragments.
-            setAttribute("image", "chrome://liveurls/skin/copy_fragments.png");
+            setAttribute("image", "chrome://webmarker/skin/copy_fragments.png");
         }
     },
 
     /* on the page being cleared of all marks, disable relevant options */
     hideMarkOptions: function(currentDoc, place)
     {
-        document.getElementById(place + "-liveurls-search").
+        document.getElementById(place + "-webmarker-search").
         setAttribute("hidden", true);
-        document.getElementById(place + "-liveurls-clearhighlight").
+        document.getElementById(place + "-webmarker-clearhighlight").
         setAttribute("hidden", true);
-        document.getElementById(place + "-liveurls-bookmark-document").
+        document.getElementById(place + "-webmarker-bookmark-document").
         setAttribute("hidden", true);
-        document.getElementById(place + "-liveurls-navigation-menu").
+        document.getElementById(place + "-webmarker-navigation-menu").
         setAttribute("hidden", true);
-        document.getElementById(place + "-liveurls-copy-fragments").
+        document.getElementById(place + "-webmarker-copy-fragments").
         setAttribute("hidden", true);
 
-        document.getElementById("cmd_liveurls_copy_link_to_marked_document").
+        document.getElementById("cmd_webmarker_copy_link_to_marked_document").
         setAttribute("disabled", true);
-        document.getElementById("cmd_liveurls_clear_all_marks").
+        document.getElementById("cmd_webmarker_clear_all_marks").
         setAttribute("disabled", true);
-        document.getElementById("cmd_liveurls_bookmark_marked_document").
+        document.getElementById("cmd_webmarker_bookmark_marked_document").
         setAttribute("disabled", true);
-        document.getElementById("cmd_liveurls_copy_fragments").
+        document.getElementById("cmd_webmarker_copy_fragments").
         setAttribute("disabled", true);
 
         var currentTab = commonUtils.getTabOfDocument(currentDoc);
@@ -764,77 +764,77 @@ var webmarker = {
 
         /* handle images */
         var link = document.getElementById("webmarker-clipboard-document");
-        link.setAttribute("image", "chrome://liveurls/skin/link_greyed.png");
+        link.setAttribute("image", "chrome://webmarker/skin/link_greyed.png");
         link =
         document.getElementById("webmarker-clipboard-document-floating");
         if(link) {
             link.setAttribute("image", 
-                              "chrome://liveurls/skin/link_greyed.png");
+                              "chrome://webmarker/skin/link_greyed.png");
         }
 
         var bookmark =
         document.getElementById("webmarker-bookmark-document");
         bookmark.setAttribute("image",
-                              "chrome://liveurls/skin/bookmark_greyed.png");
+                              "chrome://webmarker/skin/bookmark_greyed.png");
         bookmark =
         document.getElementById("webmarker-bookmark-document-floating");
         if(bookmark) {
             bookmark.
             setAttribute("image",
-                         "chrome://liveurls/skin/bookmark_greyed.png");
+                         "chrome://webmarker/skin/bookmark_greyed.png");
         }
 
         var eraser =
         document.getElementById("webmarker-clearall-button");
         eraser.setAttribute("image",
-                            "chrome://liveurls/skin/eraser_greyed.png");
+                            "chrome://webmarker/skin/eraser_greyed.png");
         eraser =
         document.getElementById("webmarker-clearall-button-floating");
         if(eraser) {
             eraser.setAttribute("image",
-                                "chrome://liveurls/skin/eraser_greyed.png");
+                                "chrome://webmarker/skin/eraser_greyed.png");
         }
 
         var copyFragments = 
         document.getElementById("webmarker-copy-fragments");
         copyFragments.
         setAttribute("image", 
-                     "chrome://liveurls/skin/copy_fragments_greyed.png");
+                     "chrome://webmarker/skin/copy_fragments_greyed.png");
 
         copyFragments = 
         document.getElementById("webmarker-copy-fragments-floating");
         if(copyFragments) {
             copyFragments.
             setAttribute("image", 
-                         "chrome://liveurls/skin/copy_fragments_greyed.png");
+                         "chrome://webmarker/skin/copy_fragments_greyed.png");
         }
     },
 
     showClearMarkOption: function(place)
     {
-        document.getElementById(place + "-liveurls-clearmark").
+        document.getElementById(place + "-webmarker-clearmark").
         setAttribute("hidden", false);
-        document.getElementById("cmd_liveurls_clear_mark").
+        document.getElementById("cmd_webmarker_clear_mark").
         setAttribute("disabled", false);
     },
 
     hideClearMarkOption: function(place)
     {
-        document.getElementById(place + "-liveurls-clearmark").
+        document.getElementById(place + "-webmarker-clearmark").
         setAttribute("hidden", true);
-        document.getElementById("cmd_liveurls_clear_mark").
+        document.getElementById("cmd_webmarker_clear_mark").
         setAttribute("disabled", true);
     },
 
     hideNoTextOption: function(place)
     {
-        document.getElementById(place + "-liveurls-notext").
+        document.getElementById(place + "-webmarker-notext").
         setAttribute("hidden", true);
     },
     
     showNoTextOption: function(place)
     {
-        document.getElementById(place + "-liveurls-notext").
+        document.getElementById(place + "-webmarker-notext").
         setAttribute("hidden", false);
     },
 
@@ -854,8 +854,8 @@ var webmarker = {
     {
         var next = document.getElementById("webmarker-next-button");
         next.setAttribute("image",
-                          "chrome://liveurls/skin/next_greyed.png");
-        document.getElementById("cmd_liveurls_goto_next_mark").
+                          "chrome://webmarker/skin/next_greyed.png");
+        document.getElementById("cmd_webmarker_goto_next_mark").
         setAttribute("disabled", true);
     },
     
@@ -863,8 +863,8 @@ var webmarker = {
     {
         var previous = document.getElementById("webmarker-previous-button");
         previous.setAttribute("image",
-                              "chrome://liveurls/skin/previous_greyed.png");
-        document.getElementById("cmd_liveurls_goto_previous_mark").
+                              "chrome://webmarker/skin/previous_greyed.png");
+        document.getElementById("cmd_webmarker_goto_previous_mark").
         setAttribute("disabled", true);
     },
     
@@ -872,8 +872,8 @@ var webmarker = {
     {
         var next = document.getElementById("webmarker-next-button");
         next.setAttribute("image",
-                          "chrome://liveurls/skin/next.png");
-        document.getElementById("cmd_liveurls_goto_next_mark").
+                          "chrome://webmarker/skin/next.png");
+        document.getElementById("cmd_webmarker_goto_next_mark").
         setAttribute("disabled", false);
     },
 
@@ -881,8 +881,8 @@ var webmarker = {
     {
         var previous = document.getElementById("webmarker-previous-button");
         previous.setAttribute("image",
-                              "chrome://liveurls/skin/previous.png");
-        document.getElementById("cmd_liveurls_goto_previous_mark").
+                              "chrome://webmarker/skin/previous.png");
+        document.getElementById("cmd_webmarker_goto_previous_mark").
         setAttribute("disabled", false);
     }
 

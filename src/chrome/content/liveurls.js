@@ -301,7 +301,7 @@ var liveurls = {
         endOffset = this.getUnCleanOffset(endNode, endOffset, -1);
 
         /* create the range that corresponds to the string */
-        range = currentDoc.createRange();
+        var range = currentDoc.createRange();
         range.setStart(startNode, startOffset); 
         range.setEnd(endNode, endOffset);
 

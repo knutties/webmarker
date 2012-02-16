@@ -16,9 +16,9 @@
                    em:version="0.8"
                    em:creator="Natarajan and Toufeeq"
                    em:description="Marker pen for the web"
-                   em:iconURL="chrome://liveurls/skin/marker.png"
+                   em:iconURL="chrome://webmarker/skin/marker.png"
                    em:homepageURL="http://liveurls.mozdev.org"
-                   em:aboutURL="chrome://liveurls/content/about.xul">
+                   em:aboutURL="chrome://webmarker/content/about.xul">
     <em:contributor>
         Luana - For Italian translation (matrixisallover@babelzilla.org)
     </em:contributor>
