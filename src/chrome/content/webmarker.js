@@ -269,11 +269,13 @@ var webmarker = {
     initMarks: function(currentDoc)
     {
         var currentTab = commonUtils.getTabOfDocument(currentDoc);
-        if(currentTab.marks) {
-            delete currentTab.marks;
+        if(currentTab) {
+            if(currentTab.marks) {
+                delete currentTab.marks;
+            }
+            currentTab.marks = [];
+            currentTab.focussedMark = -1;
         }
-        currentTab.marks = new Array();
-        currentTab.focussedMark = -1;
 
         /* we've initialized marks, so update menu options */
         this.handleOptionUpdation(false, currentDoc);
@@ -470,7 +472,7 @@ var webmarker = {
     isMarkedPage: function(currentDoc)
     {
         var currentTab = commonUtils.getTabOfDocument(currentDoc);
-        if(currentTab.marks) {
+        if(currentTab && currentTab.marks) {
             if(currentTab.marks.length > 0) {
                 return true;
             } else {
