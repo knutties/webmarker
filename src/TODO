@@ -1,0 +1,4 @@
+TODO
+====
+* Don't fail if fragment is unavailable on the first attempt - retry to
+  handle things like Facebook/Disqus comments
