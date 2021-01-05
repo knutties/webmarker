@@ -3,8 +3,8 @@
   specific content on web pages
 
   Copyright (C) <2006>  Infosys Technologies Ltd.
-  Authors : Natarajan Kannan (Natarajan_Kannan@infosys.com)
-  Toufeeq Hussain (Toufeeq_Hussain@infosys.com)
+  Authors : Natarajan Kannan
+  Toufeeq Hussain
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by

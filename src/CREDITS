@@ -1,22 +1,18 @@
 A lot of people have contributed valuable ideas to this project.
 Listing them in no particular order.
 
-Raghuveer BK [raghubk@infosys.com] for his idea about using checksums to
-validate content
+Raghuveer BK for his idea about using checksums to validate content
 
-Naveen Krishnan Unni [naveenku@infosys.com] for his idea about using
-search strings and match instances
+Naveen Krishnan Unni for his idea about using search strings and match instances
 
-Rajesh Balakrishnan [rajeshb@infosys.com] giving us valuable ideas on
-adding processing semantics
+Rajesh Balakrishnan giving us valuable ideas on adding processing semantics
 
-Sanjay Eknath Nayak [sanjayeknath_nayak@infosys.com] for his
-encouragement and Javascript insights
+Sanjay Eknath Nayak for his encouragement and Javascript insights
 
-Mahendra [mahendra_m@infosys.com] for encouraging us all throughout
+Mahendra for encouraging us all throughout
 
-Vineet Agarwal [teeniv@gmail.com] for his ideas on the possibility of
-using regular expressions for fragment identifiers
+Vineet Agarwal [teeniv@gmail.com] for his ideas on the possibility of using
+regular expressions for fragment identifiers
 
 Anonymous Italian translators who made our extension localizable :)
 
